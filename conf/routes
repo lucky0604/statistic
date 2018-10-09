@@ -1,0 +1,73 @@
+
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+# An example controller showing a sample home page
+# GET     /                           controllers.HomeController.index(page:Int ?= 1, size:Int ?= 15)
+
+# GET     /                           controllers.HomeController.adminIndex
+GET		/							controllers.FrontendController.index()
+
+# Map static resources from the /public folder to the /assets URL path
+# GET     /assets/*file               controllers.Assets.versioned(path="/public", file: Asset)
+GET		/*file						controllers.FrontendController.assetOrDefault(file)
+
+GET     /blog/logout                controllers.HomeController.logOut
+GET     /blog/message               controllers.HomeController.toMessage
+GET     /blog/article/new           controllers.HomeController.toNewArticle
+GET     /blog/article/update/:aid   controllers.HomeController.toUpdate(aid: Long)
+GET     /blog/user/article          controllers.HomeController.userCenter
+GET     /blog/catalog               controllers.HomeController.toCatalog(word: String ?= "", page: Int ?= 1, size :Int ?= 10)
+GET     /blog/user/article/:uid     controllers.HomeController.myblogs(uid: Long, page :Int ?= 1, size :Int ?= 10)
+
+GET     /blog/article/:aid          controllers.HomeController.article(aid: Long)
+
+GET           /blog/login                           controllers.HomeController.toLogin
+GET           /blog/reset/password                  controllers.HomeController.resetPassWord
+GET           /blog/test/qcback                     controllers.HomeController.qcLoginBack
+
+# footer
+GET           /blog/about                           controllers.HomeController.about
+GET           /blog/contactus                       controllers.HomeController.contactus
+GET           /blog/resume                          controllers.HomeController.toResume
+
+#blog util
+
+GET           /blog/upload                          controllers.HomeController.toUpload
+GET           /blog/resource/*file                  controllers.ResourceController.at(path="/",file)
+GET           /blog/captcha                         controllers.CaptchaController.getCaptcha(w:Int ?= 90 , h :Int ?= 36)
+
+# Post From
+POST          /blog/login                           controllers.UserController.login
+POST          /blog/register                        controllers.UserController.reg
+POST          /blog/article                         controllers.ArticleController.init
+POST          /blog/article/update                  controllers.ArticleController.update
+POST          /blog/reply2article                   controllers.Reply2ArticleController.initReply2Article
+POST          /blog/reply2message                   controllers.Reply2MsgController.initReply2Message
+POST          /blog/check/resume                    controllers.HomeController.checkResumeForm
+POST          /blog/upload                          controllers.ResourceController.upload
+POST          /blog/qclogin                         controllers.UserController.loginByQConn
+PATCH         /blog/smile/:aid                      controllers.ArticleController.updateSmileCount(aid:Long)
+DELETE        /blog/article/:aid                    controllers.ArticleController.revoke(aid:Long)
+PATCH         /blog/reply2article/smile/:rid        controllers.Reply2ArticleController.updateSmileCount(rid:Long)
+PATCH         /blog/reply2message/smile/:rid        controllers.Reply2MsgController.updateSmileCount(rid:Long)
+POST          /admin/login                          controllers.HomeController.adminLoginForm
+
+# admin
+
+GET           /admin                                controllers.HomeController.adminIndex
+GET           /admin/login                          controllers.HomeController.adminLogin
+GET           /admin/info                           controllers.HomeController.adminInfo
+GET           /admin/user                           controllers.HomeController.adminUser
+GET           /admin/password                       controllers.HomeController.adminPassword
+GET           /admin/article/list                   controllers.HomeController.adminArticleList(page:Int ?=0,size:Int ?= 10)
+GET           /admin/article/reply                  controllers.HomeController.adminArticleReply
+GET           /admin/article/add                    controllers.HomeController.adminArticleAdd
+GET           /admin/message                        controllers.HomeController.adminMessage
+GET           /admin/category                       controllers.HomeController.adminCategory
+GET           /admin/category/edit                  controllers.HomeController.adminCategoryEdit
+
+GET          /admin/register                       controllers.HomeController.userRegister
+
+POST           /api/suborder                        controllers.SubOrderController.query(page: Int ?=0, size: Int ?= 10)

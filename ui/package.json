@@ -1,0 +1,26 @@
+{
+  "name": "ui",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build"
+  },
+  "author": "lucky",
+  "dependencies": {
+    "chart.js": "^2.6.0",
+    "fbjs": "^1.0.0",
+    "moment": "^2.18.1",
+    "prop-types": "^15.5.10",
+    "react": "^16.0.0",
+    "react-chartjs-2": "^2.5.1",
+    "react-dom": "^16.0.0",
+    "react-redux": "^5.0.5",
+    "react-scripts": "1.0.13",
+    "react-transition-group": "^2.2.0",
+    "redux": "^3.7.2",
+    "semantic-ui-css": "^2.2.11",
+    "semantic-ui-react": "^0.74.2"
+  },
+  "license": "MIT"
+}
